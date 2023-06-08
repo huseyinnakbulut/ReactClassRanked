@@ -16,6 +16,12 @@ class Payment extends Component {
   changeCardNumber() {
     var cardDisplayNumber = document.getElementById('cardNumber')
     var cardInputNumber = document.getElementById('inputCardNumber')
+    var cardImage = document.getElementById('image')
+    if (cardInputNumber.value[0] == '3') {
+      cardImage.src=
+    } else if (cardInputNumber.value[0] == '4') {
+    } else {
+    }
     cardDisplayNumber.innerHTML = cardInputNumber.value
   }
   changeCCV() {
@@ -37,62 +43,17 @@ class Payment extends Component {
     return (
       <div className="container">
         <div className="row">
-          <Row>
-            <Col sm="3"></Col>
-            <Col sm="6">
-              <div>
-                <div className="card p-3">
-                  <div className="img-box">
-                    <img
-                      src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
-                      //src="/visa2.png"
-                      height="100px"
-                      width="200px"
-                      alt=""
-                    />
-                  </div>
-                  <div className="number">
-                    <label className="fw-bold" id="cardNumber">
-                      ** ** ** 1060
-                    </label>
-                  </div>
-                  <span className="fw-bold" id="NameSurname">
-                    Name:
-                  </span>
-                  <div className="d-flex align-items-center justify-content-between">
-                    <small>
-                      <span className="fw-bold" id="date">
-                        Expiry date:
-                      </span>
-                    </small>
-                    <small>
-                      <span>
-                        <b id="CCV">CVV</b>
-                      </span>
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </Col>
-
-            <Col sm="3"></Col>
-          </Row>
+          <Row></Row>
           <Row style={{ marginTop: '20px' }}>
-            <div className="col-12">
-              <div className="card p-3">
+            <Col sm="1"></Col>
+            <Col sm="10">
+              <div className="card p-3 shadow p-3 mb-5 bg-white rounded">
                 <div className="card-body border p-0">
                   <div className="collapse p-3 pt-0" id="collapseExample">
-                    <div className="row">
-                      <div className="col-8">
-                        <p className="mb-0">
-                          <span className="fw-bold">Price:</span>
-                          {/* <span className="c-green">{this.totalPrice()}</span> */}
-                        </p>
-                      </div>
-                    </div>
+                    <div className="row"></div>
                   </div>
                 </div>
-                <div className="card-body border p-0">
+                <div className="card-body border p-0  ">
                   <p>
                     <a
                       className="btn btn-primary p-2 w-100 h-100 d-flex align-items-center justify-content-between"
@@ -110,14 +71,44 @@ class Payment extends Component {
                       </span>
                     </a>
                   </p>
-                  <div className="collapse show p-3 pt-0" id="collapseExample">
+                  <div className="collapse show p-3 pt-0 " id="collapseExample">
                     <div className="row">
-                      <div className="col-lg-5 mb-lg-0 mb-3">
-                        <p className="mb-0">
-                          <span className="fw-bold">Price:</span>
-                          {/* <span className="c-green">:{this.totalPrice()} TL</span> */}
-                        </p>
-                      </div>
+                      <Col sm="5">
+                        <div>
+                          <div className="card p-3 shadow p-3 mb-5 bg-white rounded">
+                            <div className="img-box">
+                              <img
+                                //src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
+                                src="https://www.freepnglogos.com/uploads/visa-inc-png-18.png"
+                                height="100px"
+                                width="200px"
+                                alt=""
+                                id="image"
+                              />
+                            </div>
+                            <div className="number">
+                              <label className="fw-bold" id="cardNumber">
+                                ** ** ** 1060
+                              </label>
+                            </div>
+                            <span className="fw-bold" id="NameSurname">
+                              Name:
+                            </span>
+                            <div className="d-flex align-items-center justify-content-between">
+                              <small>
+                                <span className="fw-bold" id="date">
+                                  Expiry date:
+                                </span>
+                              </small>
+                              <small>
+                                <span>
+                                  <b id="CCV">CVV</b>
+                                </span>
+                              </small>
+                            </div>
+                          </div>
+                        </div>
+                      </Col>
                       <div className="col-lg-7">
                         <form action className="form">
                           <div className="row">
@@ -195,7 +186,8 @@ class Payment extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </Col>
+            <Col sm="1"></Col>
           </Row>
         </div>
       </div>
