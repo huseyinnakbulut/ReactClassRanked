@@ -34,7 +34,7 @@ export default class Header extends Component {
             style={{ justifyContent: "flex-end", marginRight: "100px" }}
             >
                 
-                <Nav className="mr-auto" navbar>
+                <Nav className="mr-auto" navbar> 
                 <NavItem>
                         <NavLink>
                             
