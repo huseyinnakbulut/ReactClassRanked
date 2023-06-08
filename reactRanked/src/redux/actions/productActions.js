@@ -1,4 +1,4 @@
-import * as types from '../constants/actionTypes';
+import * as types from './actionTypes';
 
 export function getProductsSuccess(products) {
     return {type: types.GET_PRODUCTS_SUCCESS, payload: products}

@@ -3,7 +3,7 @@ import * as types from './actionTypes';
 
 export function changeCategory(category) {
     return {
-        type: actionTypes.CHANGE_CATEGORY,
+        type: types.CHANGE_CATEGORY,
         payload: category,
     };
 }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
 // import { bindActionCreators } from 'redux'
-// import * as cartActions from '../../redux/actions/cartActions'
+import * as cartActions from '../../redux/actions/cartActions'
 import { Button, Col, Row } from 'reactstrap'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 class Payment extends Component {
   //   totalPrice() {
   //     let totalPrice = 0
@@ -18,9 +20,13 @@ class Payment extends Component {
     var cardInputNumber = document.getElementById('inputCardNumber')
     var cardImage = document.getElementById('image')
     if (cardInputNumber.value[0] == '3') {
-      cardImage.src=
+      cardImage.src =
+        'https://www.freepnglogos.com/uploads/paypal-logo-png-3.png'
     } else if (cardInputNumber.value[0] == '4') {
+      cardImage.src = 'https://www.freepnglogos.com/uploads/visa-inc-png-18.png'
     } else {
+      cardImage.src =
+        'https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png'
     }
     cardDisplayNumber.innerHTML = cardInputNumber.value
   }
@@ -78,8 +84,7 @@ class Payment extends Component {
                           <div className="card p-3 shadow p-3 mb-5 bg-white rounded">
                             <div className="img-box">
                               <img
-                                //src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
-                                src="https://www.freepnglogos.com/uploads/visa-inc-png-18.png"
+                                src="https://www.freepnglogos.com/uploads/mastercard-png/file-mastercard-logo-svg-wikimedia-commons-4.png"
                                 height="100px"
                                 width="200px"
                                 alt=""
@@ -108,6 +113,10 @@ class Payment extends Component {
                             </div>
                           </div>
                         </div>
+                        <br />
+                        <h2>
+                          <b>Total Price: </b> {this.props.totalPrice} TL
+                        </h2>
                       </Col>
                       <div className="col-lg-7">
                         <form action className="form">
@@ -194,19 +203,18 @@ class Payment extends Component {
     )
   }
 }
-// function mapStateToProps(state) {
-//   return {
-//     cart: state.cartReducer,
-//   }
-// }
+function mapStateToProps(state) {
+  return {
+    totalPrice: state.totalPrice,
+  }
+}
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     actions: {
-//       totalPrice: bindActionCreators(cartActions.totalPrice, dispatch),
-//     },
-//   }
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      totalPriceFunc: bindActionCreators(cartActions.totalPrice, dispatch),
+    },
+  }
+}
 
-//export default connect(mapStateToProps, mapDispatchToProps)(Payment)
-export default Payment
+export default connect(mapStateToProps, mapDispatchToProps)(Payment)
